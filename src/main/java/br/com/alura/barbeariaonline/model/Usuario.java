@@ -1,11 +1,21 @@
 package br.com.alura.barbeariaonline.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="usuarios")
 public class Usuario {	
-	    private int id;
+		@Id
+		@GeneratedValue(strategy = GenerationType.IDENTITY)
+	    private Long id;
 	    private String usuario;
 	    private String senha;
 
-	    public Usuario(int id,String usuario, String senha) {
+	    public Usuario(Long id,String usuario, String senha) {
 	        this.id = id;
 	        this.usuario = usuario;
 	        this.senha = senha;
@@ -19,11 +29,11 @@ public class Usuario {
 	   
 	    
 
-	    public int getId() {
+	    public Long getId() {
 	        return id;
 	    }
 
-	    public void setId(int id) {
+	    public void setId(Long id) {
 	        this.id = id;
 	    }
 

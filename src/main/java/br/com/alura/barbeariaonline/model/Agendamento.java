@@ -6,10 +6,24 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+@Entity
+@Table(name="agendamentos")
 public class Agendamento {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	@ManyToOne(fetch = FetchType.LAZY)
     private Cliente cliente;
+	@ManyToOne(fetch = FetchType.LAZY)
     private Servico servico;
+	@ManyToOne(fetch = FetchType.LAZY)
     private Barbeiro barbeiro;
     private double valor;
     private Date data;

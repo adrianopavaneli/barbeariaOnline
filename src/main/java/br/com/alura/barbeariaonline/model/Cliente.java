@@ -6,8 +6,17 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+@Entity
+@Table(name="clientes")
 public class Cliente {
-	 private int id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+		private int id;
 	    private String nome;
 	    private String sexo;
 	    private Date dataNascimento;
