@@ -19,17 +19,21 @@ public class Agendamento {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
     private Cliente cliente;
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
     private Servico servico;
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
     private Barbeiro barbeiro;
     private double valor;
     private Date data;
     private boolean ativo;
     
     private String observacao;
+    
+    public Agendamento() {
+    	
+    }
 
     public Agendamento(Long id, Cliente cliente, Servico servico, double valor, String data) {
         this.id = id;
