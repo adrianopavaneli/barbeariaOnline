@@ -1,10 +1,12 @@
 package br.com.alura.barbeariaonline.controller;
 
-import javax.validation.Valid;
+import java.security.Principal;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,18 +21,28 @@ public class BarbeiroController {
 	@Autowired
 	private BarbeiroRepository barbeiroRepository;
 	
-	@GetMapping("formulario")
+	@GetMapping("cadastrar")
 	public String formulario() {
-		return "barbeiro/formulario";
+		return "barbeiro/cadastrar";
 	}
 	
 	@PostMapping("novo")
 	public String novo(RequisicaoNovoBarbeiro requisicao) {
-//		if(result.hasErrors()) {
-//			return "barbeiro/formulario";
-//		}
+	
 		Barbeiro barbeiro = requisicao.toBarbeiro();
 		barbeiroRepository.save(barbeiro);
-		return "barbeiro/formulario";
+		return "barbeiro/cadastrar";
 	}
+	@GetMapping("consultar")
+	public String barbeiro(Model model, Principal principal) {
+	    Sort sort = Sort.by("id").ascending();
+	    
+	    List<Barbeiro> barbeiros = barbeiroRepository.findAll();       
+        model.addAttribute("barbeiros", barbeiros);
+        return "barbeiro/consultar";
+	    
+	    
+	}
+	
+	
 }
