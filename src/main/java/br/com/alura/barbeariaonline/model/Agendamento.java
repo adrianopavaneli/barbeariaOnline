@@ -18,7 +18,7 @@ import javax.persistence.Table;
 public class Agendamento {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Long id;
 	@ManyToOne(fetch = FetchType.LAZY)
     private Cliente cliente;
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -31,7 +31,7 @@ public class Agendamento {
     
     private String observacao;
 
-    public Agendamento(int id, Cliente cliente, Servico servico, double valor, String data) {
+    public Agendamento(Long id, Cliente cliente, Servico servico, double valor, String data) {
         this.id = id;
         this.cliente = cliente;
         this.servico = servico;
@@ -43,7 +43,7 @@ public class Agendamento {
         }
     }
 
-    public Agendamento(int id, Cliente cliente, Servico servico, Barbeiro barbeiro,double valor, Date data, String observacao) {
+    public Agendamento(Long id, Cliente cliente, Servico servico, Barbeiro barbeiro,double valor, Date data, String observacao) {
         this.id = id;
         this.cliente = cliente;
         this.servico = servico;
@@ -56,7 +56,7 @@ public class Agendamento {
 
    
 
-    public Agendamento(int id, double valor, Date data, String observacao) {
+    public Agendamento(Long id, double valor, Date data, String observacao) {
         this.id = id;
         this.valor = valor;
         this.data = data;
@@ -73,11 +73,11 @@ public class Agendamento {
 
  
    
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

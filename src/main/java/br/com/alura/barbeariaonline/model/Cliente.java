@@ -16,7 +16,7 @@ import javax.persistence.Table;
 public class Cliente {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-		private int id;
+		private Long id;
 	    private String nome;
 	    private String sexo;
 	    private Date dataNascimento;
@@ -27,7 +27,7 @@ public class Cliente {
 	    private String cep;
 	    private String cidade;
 
-	    public Cliente(int id, String nome, String sexo, Date dataNascimento, String telefone, String email, String rg, String endereco, String cep, String cidade) {
+	    public Cliente(Long id, String nome, String sexo, Date dataNascimento, String telefone, String email, String rg, String endereco, String cep, String cidade) {
 	        this.id = id;
 	        this.nome = nome;
 	        this.sexo = sexo;
@@ -40,13 +40,13 @@ public class Cliente {
 	        this.cidade = cidade;
 	    }
 
-	    public Cliente(int id) {
+	    public Cliente(Long id) {
 	        this.id = id;
 	    }
 	    
 	    
 
-	    public Cliente(int id, String nome, String sexo,String dataNascimento, String telefone, String email, String rg, String endereco, String cep) {
+	    public Cliente(Long id, String nome, String sexo,String dataNascimento, String telefone, String email, String rg, String endereco, String cep) {
 	        this.id = id;
 	        this.nome = nome;
 	        this.sexo = sexo;
@@ -62,7 +62,7 @@ public class Cliente {
 	        this.cep = cep;
 	    }
 
-	    public Cliente(int id, String nome, String telefone) {
+	    public Cliente(Long id, String nome, String telefone) {
 	        this.id = id;
 	        this.nome = nome;
 	        this.telefone = telefone;
@@ -95,14 +95,14 @@ public class Cliente {
 
 	   
 
-	    public Cliente(int id, String nome, String endereco, String cep ) {
+	    public Cliente(Long id, String nome, String endereco, String cep ) {
 	        this.id = id;
 	        this.nome = nome;
 	        this.endereco = endereco;
 	        this.cep = cep;
 	    }
 
-	    public int getId() {
+	    public Long getId() {
 	        return id;
 	    }
 
@@ -115,7 +115,7 @@ public class Cliente {
 	    }
 
 	    
-	    public void setId(int id) {
+	    public void setId(Long id) {
 	        this.id = id;
 	    }
 

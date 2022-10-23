@@ -10,11 +10,11 @@ import javax.persistence.Table;
 public class Servico {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Long id;
     private String descricao;
     private double valor;
 
-    public Servico(int id, String descricao, double valor) {
+    public Servico(Long id, String descricao, double valor) {
         this.id = id;
         this.descricao = descricao;
         this.valor = valor;
@@ -46,11 +46,11 @@ public class Servico {
         this.valor = valor;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
