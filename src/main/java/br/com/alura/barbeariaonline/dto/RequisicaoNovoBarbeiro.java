@@ -10,11 +10,11 @@ public class RequisicaoNovoBarbeiro {
 	@NotBlank 
 	private String nomeBarbeiro;
 
-	public String getNome() {
+	public String getNomeBarbeiro() {
 		return nomeBarbeiro;
 	}
 
-	public void setNome(String nomeBarbeiro) {
+	public void setNomeBarbeiro(String nomeBarbeiro) {
 		this.nomeBarbeiro = nomeBarbeiro;
 	}
 

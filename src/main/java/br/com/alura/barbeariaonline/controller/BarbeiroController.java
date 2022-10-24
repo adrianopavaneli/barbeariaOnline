@@ -66,11 +66,14 @@ public class BarbeiroController {
 	}
 
 	
-        
-     @DeleteMapping("deletar")   
+      @PostMapping("deletar")  
+     @DeleteMapping("deletar/{id}")   
     public String delete(RequisicaoDeleteBarbeiro requisicao) {
-         String idstring = requisicao.toBarbeiro();          
+         
+         
+                  String idstring = requisicao.toBarbeiro();          
         Long id = Long.parseLong(idstring);
+        System.out.println(id);
         barbeiroRepository.deleteById(id);
         return "barbeiro/deletar";
        
