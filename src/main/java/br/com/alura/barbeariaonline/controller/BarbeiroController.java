@@ -7,10 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import br.com.alura.barbeariaonline.dto.RequisicaoAlterarBarbeiro;
+import br.com.alura.barbeariaonline.dto.RequisicaoDeleteBarbeiro;
 import br.com.alura.barbeariaonline.dto.RequisicaoNovoBarbeiro;
 import br.com.alura.barbeariaonline.model.Barbeiro;
 import br.com.alura.barbeariaonline.repository.BarbeiroRepository;
@@ -26,6 +30,16 @@ public class BarbeiroController {
 		return "barbeiro/cadastrar";
 	}
 	
+	@GetMapping("deletar")
+    public String formdelete() {
+        return "barbeiro/deletar";
+    }
+	
+	@GetMapping("alterar")
+    public String formalterar() {
+        return "barbeiro/alterar";
+    }
+	
 	@PostMapping("novo")
 	public String novo(RequisicaoNovoBarbeiro requisicao) {
 	
@@ -33,6 +47,15 @@ public class BarbeiroController {
 		barbeiroRepository.save(barbeiro);
 		return "barbeiro/cadastrar";
 	}
+	
+	   @PostMapping("alterar")
+	    public String alterar(RequisicaoAlterarBarbeiro requisicao) {
+	        
+	        Barbeiro barbeiro = requisicao.toBarbeiro();
+	        barbeiroRepository.save(barbeiro);
+	        return "barbeiro/alterar";
+	    }
+	   
 	@GetMapping("consultar")
 	public String barbeiro(Model model, Principal principal) {
 	    Sort sort = Sort.by("id").ascending();
@@ -40,7 +63,17 @@ public class BarbeiroController {
 	    List<Barbeiro> barbeiros = barbeiroRepository.findAll();       
         model.addAttribute("barbeiros", barbeiros);
         return "barbeiro/consultar";
-	    
+	}
+
+	
+        
+     @DeleteMapping("deletar")   
+    public String delete(RequisicaoDeleteBarbeiro requisicao) {
+         String idstring = requisicao.toBarbeiro();          
+        Long id = Long.parseLong(idstring);
+        barbeiroRepository.deleteById(id);
+        return "barbeiro/deletar";
+       
 	    
 	}
 	

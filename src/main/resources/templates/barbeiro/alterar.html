@@ -8,22 +8,27 @@
 	
 	<nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
 	<div class="navbar-nav">
-	<a class="nav-itm nav-link active" href="cadastrar">Cadastrar</a>
-	<a class="nav-itm nav-link" href="alterar">Alterar</a>
+	<a class="nav-itm nav-link" href="cadastrar">Cadastrar</a>
+	<a class="nav-itm nav-link active" href="alterar">Alterar</a>
 	<a class="nav-itm nav-link" href="deletar">Deletar</a>
 	<a class="nav-itm nav-link" href="consultar">Consultar</a>
 	</div>
 	</nav>
 		
 		
-		<div class="card mt-3 mb-3">
-		<form class="card-body" action="/barbeiro/novo" method="post">
-			<div class="form-group">
+		<div class="card mt-2 mb-2 p-0">
+		<form class="card-body" action="/barbeiro/alterar" method="post">
+			<div class="form-group p-0">
+			<label for="idBarbeiro">Nome:</label>
+			<input name="idBarbeiro" class="form-control col-5" placeholder="id do barbeiro"/>
+			<small>Informe o id do barbeiro.</small>			
+			</div>		
+			<div class="form-group p-0">
 			<label for="nomeBarbeiro">Nome:</label>
 			<input name="nomeBarbeiro" class="form-control col-5" placeholder="nome do barbeiro"/>
 			<small>Informe o nome do barbeiro.</small>			
-			</div>			
-			<button class="btn btn-primary" type="submit">Cadastrar</button>
+			</div>	
+			<button class="btn btn-primary" type="submit">Alterar</button>
 		</form>
 	</div>	
 	</div>

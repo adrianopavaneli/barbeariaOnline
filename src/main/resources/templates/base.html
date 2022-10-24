@@ -15,15 +15,30 @@
 	font-size: 4.5rem;
 	
 	}
+	.footer {
+	text-align: center;
+	background: url("https://raw.githubusercontent.com/adrianopavaneli/barbeariaOnline/main/src/main/resources/imagens/bg.jpg");
+	padding: 5px 0;
+}
+
+.copyright {
+	color: #FFFFFF;
+	font-size: 13px;
+	margin: 5px 0 0;
+}
 
 
 </style>
 </head>
 
-<div th:fragment="logo(valor)" class="logo-container mb-3 p-3 d-flex justify-content-between">
-	<img alt="" src="https://raw.githubusercontent.com/adrianopavaneli/barbeariaOnline/main/src/main/resources/imagens/logo.png">
+<div th:fragment="logo(valor)" class="logo-container mb-3 p-1 d-flex justify-content-between">
+	<img height="160px" src="https://raw.githubusercontent.com/adrianopavaneli/barbeariaOnline/main/src/main/resources/imagens/logo.png">
 	<span class="logo mt-5" th:text="${valor}"></span>	
-	<span class="mt-3">Login</span>
+	<span class="mt-5">Login</span>
 	</div>
 	
+	<footer class="footer" th:fragment="footer">
+			<img th:src="@{/resources/imagens/logo-branco.png}">
+			<p class="copyright">&copy; Copyright Barbearia Alura - 2022</p>
+		</footer>
 	
