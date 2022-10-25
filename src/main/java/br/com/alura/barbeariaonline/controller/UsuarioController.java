@@ -75,7 +75,7 @@ public class UsuarioController {
          
         String idstring = requisicao.toUsuario();          
         Long id = Long.parseLong(idstring);
-        System.out.println(id);
+       
         usuarioRepository.deleteById(id);
         return "barbeiro/sucesso";
        

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head th:replace="~{base :: head}"></head>
+<meta charset="UTF-8">
+<body>
+	<div th:replace="~{base :: logo('Serviços')}"></div>
+
+	<div class="container">
+	
+	<nav class="navbar navbar-expand-lg navbar-light bg-light mb-1 p-1">
+	<div class="navbar-nav">
+	<a class="nav-itm nav-link" href="cadastrar">Cadastrar</a>
+	<a class="nav-itm nav-link" href="alterar">Alterar</a>
+	<a class="nav-itm nav-link" href="deletar">Deletar</a>
+	<a class="nav-itm nav-link active" href="consultar">Consultar</a>
+	</div>
+	</nav>
+		
+		
+		<div class="card mt-1">
+		
+		<div class="card" >
+		
+		<div class="card-header mt-0 mb-0 p-2">Lista de Serviços</div>
+		<div class="card-body ml-3 mt-0 p-1 mr-2 mb-1">		
+		<ul class="list-group list-group-flush " th:each="servico : ${servicos}">
+		<div class="row mt-0 p-1">
+		<li class="list-group-item col-md-1 p-0">Id: <span th:text="${servico.id}"></span></li>
+		<li class="list-group-item col-md-4 p-0">Descrição: <span th:text="${servico.descricao}"></span></li>	
+		<li class="list-group-item col-md-7 p-0">Valor: <span th:text="${servico.valor}"></span></li>	
+    	</div>
+  </ul>
+		
+	</div>
+		
+		
+		<footer th:replace="~{base :: footer}"></footer>
+		
+	
+</body>
+</html>

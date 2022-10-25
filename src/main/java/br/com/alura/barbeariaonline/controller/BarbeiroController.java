@@ -77,7 +77,7 @@ public class BarbeiroController {
          
                   String idstring = requisicao.toBarbeiro();          
         Long id = Long.parseLong(idstring);
-        System.out.println(id);
+        
         barbeiroRepository.deleteById(id);
         return "barbeiro/sucesso";
        
