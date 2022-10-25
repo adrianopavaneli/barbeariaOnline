@@ -19,6 +19,7 @@ public class Cliente {
 		private Long id;
 	    private String nome;
 	    private String sexo;
+	   
 	    private Date dataNascimento;
 	    private String telefone;
 	    private String email;
@@ -43,7 +44,7 @@ public class Cliente {
 	    public Cliente(Long id) {
 	        this.id = id;
 	    }
-	    
+	  
 	    
 
 	    public Cliente(Long id, String nome, String sexo,String dataNascimento, String telefone, String email, String rg, String endereco, String cep) {
