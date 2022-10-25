@@ -25,6 +25,10 @@ public class Usuario {
 	        this.username = username;
 	        this.password = password;
 	    }
+	    
+	    public Usuario() {
+	        
+	    }
 
 		public Long getId() {
 			return id;

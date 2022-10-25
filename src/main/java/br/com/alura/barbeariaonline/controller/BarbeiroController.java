@@ -39,13 +39,17 @@ public class BarbeiroController {
     public String formalterar() {
         return "barbeiro/alterar";
     }
+	@GetMapping("sucesso")
+    public String formsucesso() {
+        return "barbeiro/sucesso";
+    }
 	
 	@PostMapping("novo")
 	public String novo(RequisicaoNovoBarbeiro requisicao) {
 	
 		Barbeiro barbeiro = requisicao.toBarbeiro();
 		barbeiroRepository.save(barbeiro);
-		return "barbeiro/cadastrar";
+		return "barbeiro/sucesso";
 	}
 	
 	   @PostMapping("alterar")
@@ -53,7 +57,7 @@ public class BarbeiroController {
 	        
 	        Barbeiro barbeiro = requisicao.toBarbeiro();
 	        barbeiroRepository.save(barbeiro);
-	        return "barbeiro/alterar";
+	        return "barbeiro/sucesso";
 	    }
 	   
 	@GetMapping("consultar")
@@ -75,7 +79,7 @@ public class BarbeiroController {
         Long id = Long.parseLong(idstring);
         System.out.println(id);
         barbeiroRepository.deleteById(id);
-        return "barbeiro/deletar";
+        return "barbeiro/sucesso";
        
 	    
 	}

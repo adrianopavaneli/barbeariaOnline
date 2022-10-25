@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+<meta charset="utf-8"/>
 <head th:replace="~{base :: head}"></head>
 <body>
 	<div th:replace="~{base :: logo('Barbeiros')}"></div>
 
 	<div class="container">
 	
-	<nav class="navbar navbar-expand-lg navbar-light bg-light mb-3 p-1">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light mb-1 p-1">
 	<div class="navbar-nav">
 	<a class="nav-itm nav-link" href="cadastrar">Cadastrar</a>
 	<a class="nav-itm nav-link" href="alterar">Alterar</a>
@@ -16,18 +17,15 @@
 	</nav>
 		
 		
-		<div class="card mt-3 mb-3">
-		<form class="card-body" action="/barbeiro/deletar" method="POST">
-			<div class="form-group">
-			<label for="idBarbeiro">Informe o id do barbeiro para deletar</label>
-			<input type="hidden" name="_method" value="DELETE" >  
-			<input name="idBarbeiro" class="form-control col-5" placeholder="id do barbeiro"/>
-						
+		<div class="mt-0 mb-2 col-5" action="/barbeiro/sucesso" method="Get">
+			
+			<div class="alert alert-success mb-2" role="alert">
+			Operação realizada com sucesso!
 			</div>			
-			<button class="btn btn-primary" type="submit" value="excluir">Deletar</button>
-		</form>
+			
+		
 	</div>	
-	</div>
+	
 	<footer th:replace="~{base :: footer}"></footer>
 </body>
 </html>

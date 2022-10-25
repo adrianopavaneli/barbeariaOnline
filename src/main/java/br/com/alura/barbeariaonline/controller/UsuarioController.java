@@ -1,37 +1,86 @@
 package br.com.alura.barbeariaonline.controller;
 
-import javax.validation.Valid;
+import java.security.Principal;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import br.com.alura.barbeariaonline.dto.RequisicaoAlterarUsuario;
+import br.com.alura.barbeariaonline.dto.RequisicaoDeleteUsuario;
 import br.com.alura.barbeariaonline.dto.RequisicaoNovoUsuario;
+import br.com.alura.barbeariaonline.model.Usuario;
 import br.com.alura.barbeariaonline.repository.UsuarioRepository;
 
 @Controller
 @RequestMapping("usuario")
 public class UsuarioController {
-	@Autowired
-	private UsuarioRepository usuarioRepository;
-	
-	@GetMapping("formulario")
-	public String formulario(RequisicaoNovoUsuario requisicao) {
-		return "usuario/formulario";
-	}
-	
-	@PostMapping("novo")
-	public String novo(@Valid RequisicaoNovoUsuario requisicao, BindingResult result) {
-		if(result.hasErrors()) {
-			return "usuario.formulario";
-		}
-		
-		
-		
-		return null;
-	}
+    @Autowired
+    private UsuarioRepository usuarioRepository;
+    
+    @GetMapping("cadastrar")
+    public String formulario() {
+        return "usuario/cadastrar";
+    }
+    
+    @GetMapping("deletar")
+    public String formdelete() {
+        return "usuario/deletar";
+    }
+    
+    @GetMapping("alterar")
+    public String formalterar() {
+        return "usuario/alterar";
+    }
+    @GetMapping("sucesso")
+    public String formsucesso() {
+        return "usuario/sucesso";
+    }
+    
+    @PostMapping("novo")
+    public String novo(RequisicaoNovoUsuario requisicao) {
+    
+        Usuario usuario = requisicao.toUsuario();
+        usuarioRepository.save(usuario);
+        return "usuario/sucesso";
+    }
+    
+       @PostMapping("alterar")
+        public String alterar(RequisicaoAlterarUsuario requisicao) {
+            
+           Usuario usuario = requisicao.toUsuario();
+           usuarioRepository.save(usuario);
+            return "usuario/sucesso";
+        }
+       
+    @GetMapping("consultar")
+    public String usuario(Model model, Principal principal) {
+        Sort sort = Sort.by("id").ascending();
+        
+        List<Usuario> usuarios = usuarioRepository.findAll();       
+        model.addAttribute("usuarios", usuarios);
+        return "usuario/consultar";
+    }
 
+    
+      @PostMapping("deletar")  
+     @DeleteMapping("deletar/{id}")   
+    public String delete(RequisicaoDeleteUsuario requisicao) {        
+         
+        String idstring = requisicao.toUsuario();          
+        Long id = Long.parseLong(idstring);
+        System.out.println(id);
+        usuarioRepository.deleteById(id);
+        return "barbeiro/sucesso";
+       
+        
+    }
+    
+    
 }
