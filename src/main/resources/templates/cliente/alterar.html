@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head th:replace="~{base :: head}"></head>
+<meta charset="UTF-8">
+<body>
+	<div th:replace="~{base :: logo('Clientes')}"></div>
+
+	<div class="container">
+	
+	<nav class="navbar navbar-expand-lg navbar-light bg-light mb-3 p-1">
+	<div class="navbar-nav">
+	<a class="nav-itm nav-link" href="cadastrar">Cadastrar</a>
+	<a class="nav-itm nav-link active" href="alterar">Alterar</a>
+	<a class="nav-itm nav-link" href="deletar">Deletar</a>
+	<a class="nav-itm nav-link" href="consultar">Consultar</a>
+	</div>
+	</nav>
+		
+		
+		<div class="card mt-2 mb-2 p-0">
+		<form class="card-body" action="/cliente/alterar" method="post">
+	<div class="form-row">
+	<div class="form-group col-md-1">
+        <label for="idCliente">Id:</label>
+		<input name="idCliente" class="form-control" placeholder="id"/>
+		<small>Informe o id do cliente.</small>
+    </div>
+    <div class="form-group col-md-5">
+        <label for="nomeCliente">Nome:</label>
+		<input name="nomeCliente" class="form-control" placeholder="nome do cliente"/>
+		<small>Informe o nome do cliente.</small>
+    </div>
+    <div class="form-group col-md-3">
+     		 <label for="rg">Rg:</label>
+			<input  name="rg" class="form-control" placeholder="9999999-9"/>
+			<small>Informe o RG do cliente</small>
+    </div>
+     <div class="form-group col-md-3">
+     		 <label for="dataNascimento">Data de Nascimento:</label>
+			<input type="date" name="dataNascimento" class="form-control" />
+			<small>Informe a data de nascimento do cliente</small>	
+    </div>
+  </div>  
+  <div class="form-row">
+    <div class="form-group col-md-2">
+        <label for="cep">Cep:</label>
+			<input  name="cep" class="form-control" placeholder="00000-000"/>
+			<small>Informe o cep do cliente</small>
+    </div>
+    <div class="form-group col-md-6">
+     		 <label for="endereco">Endereço:</label>
+			<input  name="endereco" class="form-control" placeholder="Rua Brasil, 000"/>
+			<small>Informe o endereço do cliente</small>
+    </div>
+     <div class="form-group col-md-4">
+     		<label for="cidade">Cidade:</label>
+			<input  name="cidade" class="form-control" placeholder="cidade/UF"/>
+			<small>Informe o cidade do cliente</small>	
+    </div>
+  </div>
+  
+  
+   <div class="form-row">
+    
+    <div class="form-group col-md-2">
+     		<label for="email">Sexo:</label>
+    <div class="form-check">			
+			  <input class="form-check-input" type="radio" name="sexo" id="1" value="M" >
+			  <label class="form-check-label" for="sexo">
+			    Masculino
+			  </label>
+			</div>
+			<div class="form-check">
+			  <input class="form-check-input" type="radio" name="sexo" id="2" value="F">
+			  <label class="form-check-label" for="sexo">
+			    Feminino
+			  </label>
+			</div>	
+    </div>
+     <div class="form-group col-md-2">			
+			<label for="telefone">Telefone:</label>
+			<input  type="tel" name="telefone" class="form-control" placeholder="(99)99999-9999"/>
+			<small>Informe o telefone do cliente</small>	
+    </div>
+    <div class="form-group col-md-5">
+     <label for="email">Email::</label>
+			<input  type="email" name="email" class="form-control" placeholder="email do cliente"/>
+			<small>Informe o email do cliente</small>     		 
+    </div>    
+  </div>    
+  <button class="btn btn-primary" type="submit">Cadastrar</button>  
+</form>	
+	</div>	
+	</div>
+	<footer th:replace="~{base :: footer}"></footer>
+</body>
+</html>

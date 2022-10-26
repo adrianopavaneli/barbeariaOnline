@@ -93,10 +93,24 @@ public class Cliente {
 	    public Cliente(){
 	        
 	    }
-
+	    
 	   
 
-	    public Cliente(Long id, String nome, String endereco, String cep ) {
+	    public Cliente(String nome, String sexo, Date dataNascimento, String telefone, String email, String rg,
+                String endereco, String cep, String cidade) {
+            super();
+            this.nome = nome;
+            this.sexo = sexo;
+            this.dataNascimento = dataNascimento;
+            this.telefone = telefone;
+            this.email = email;
+            this.rg = rg;
+            this.endereco = endereco;
+            this.cep = cep;
+            this.cidade = cidade;
+        }
+
+        public Cliente(Long id, String nome, String endereco, String cep ) {
 	        this.id = id;
 	        this.nome = nome;
 	        this.endereco = endereco;
@@ -183,14 +197,21 @@ public class Cliente {
 	    public void setCep(String cep) {
 	        this.cep = cep;
 	    }
+
+        @Override
+        public String toString() {
+            return "Cliente [id=" + id + ", nome=" + nome + ", sexo=" + sexo + ", dataNascimento=" + dataNascimento
+                    + ", telefone=" + telefone + ", email=" + email + ", rg=" + rg + ", endereco=" + endereco + ", cep="
+                    + cep + ", cidade=" + cidade + "]";
+        }
 	    
 
 	   
 
-	    @Override
-	    public String toString() {
-	        return nome;
-	    }
+//	    @Override
+//	    public String toString() {
+//	        return nome;
+//	    }
 	    
 	    
 

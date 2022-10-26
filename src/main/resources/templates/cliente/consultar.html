@@ -3,7 +3,7 @@
 <head th:replace="~{base :: head}"></head>
 <meta charset="UTF-8">
 <body>
-	<div th:replace="~{base :: logo('Serviços')}"></div>
+	<div th:replace="~{base :: logo('Clientes')}"></div>
 
 	<div class="container">
 	
@@ -23,11 +23,13 @@
 		
 		<div class="card-header mt-0 mb-0 p-2">Lista de Serviços</div>
 		<div class="card-body ml-3 mt-0 p-1 mr-2 mb-1">		
-		<ul class="list-group list-group-flush " th:each="servico : ${servicos}">
+		<ul class="list-group list-group-flush " th:each="cliente : ${clientes}">
 		<div class="row mt-0 p-1">
-		<li class="list-group-item col-md-1 p-0">Id: <span th:text="${servico.id}"></span></li>
-		<li class="list-group-item col-md-4 p-0">Descrição: <span th:text="${servico.descricao}"></span></li>	
-		<li class="list-group-item col-md-7 p-0">Valor: R$ <span th:text="${#numbers.formatDecimal(servico.valor,0,2,'COMMA')}"></span></li>	
+		<li class="list-group-item col-md-1 p-0">Id: <span th:text="${cliente.id}"></span></li>
+		<li class="list-group-item col-md-3 p-0">Nome:: <span th:text="${cliente.nome}"></span></li>	
+		<li class="list-group-item col-md-2 p-0">Cidade: <span th:text="${cliente.cidade}"></span></li>
+		<li class="list-group-item col-md-3 p-0">Telefone: <span th:text="${cliente.telefone}"></span></li>
+		<li class="list-group-item col-md-3 p-0">Data de Nascimento: <span th:text="${#calendars.format(cliente.dataNascimento, 'dd/MM/yyyy')}"></span></li>	
     	</div>
   </ul>
 		
@@ -39,3 +41,5 @@
 	
 </body>
 </html>
+
+

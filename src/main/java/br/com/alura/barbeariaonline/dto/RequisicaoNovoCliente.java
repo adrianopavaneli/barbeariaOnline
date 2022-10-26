@@ -1,8 +1,8 @@
 package br.com.alura.barbeariaonline.dto;
 
+import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import javax.validation.constraints.NotBlank;
 
@@ -18,7 +18,7 @@ public class RequisicaoNovoCliente {
 	@NotBlank
 	private String cidade;
 	@NotBlank
-	private String datanascimento;
+	private String dataNascimento;
 	@NotBlank
 	private String email;
 	@NotBlank
@@ -30,7 +30,7 @@ public class RequisicaoNovoCliente {
 	@NotBlank
 	private String telefone;
 	
-	SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+	SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:MM");
 	
 	public String getNomeCliente() {
         return nomeCliente;
@@ -56,12 +56,12 @@ public class RequisicaoNovoCliente {
         this.cidade = cidade;
     }
 
-    public String getDatanascimento() {
-        return datanascimento;
+    public String getDataNascimento() {
+        return dataNascimento;
     }
 
-    public void setDatanascimento(String datanascimento) {
-        this.datanascimento = datanascimento;
+    public void setDataNascimento(String datanascimento) {
+        this.dataNascimento = datanascimento;
     }
 
     public String getEmail() {
@@ -117,7 +117,7 @@ public class RequisicaoNovoCliente {
 	    cliente.setRg(rg);
 	    cliente.setSexo(sexo);
 	    cliente.setTelefone(telefone);
-	    Date data = formatter.parse(datanascimento);	    
+	    Date data  = (Date) formatter.parse(dataNascimento);	    
 	    cliente.setDataNascimento(data);
 	   
 		return cliente;

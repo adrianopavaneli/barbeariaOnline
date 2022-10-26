@@ -48,7 +48,8 @@ public class ClienteController {
     public String novo(RequisicaoNovoCliente requisicao) throws ParseException {
     
         Cliente cliente = requisicao.toCliente();
-        clienteRepository.save(cliente);
+        System.out.println(cliente);
+//        clienteRepository.save(cliente);
         return "cliente/sucesso";
     }
     
