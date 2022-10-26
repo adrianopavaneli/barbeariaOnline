@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<meta charset="UTF-8">
+<head th:replace="~{base :: head}"></head>
+<body>
+	<div th:replace="~{base :: logo('Área Administrativa')}"></div>
+
+	<div class="container">
+	
+	<nav class="navbar navbar-expand-lg navbar-light bg-light mb-3 p-1">
+	<div class="navbar-nav">
+	<a class="nav-itm nav-link active" href="cliente/cadastrar">Clientes</a>
+	<a class="nav-itm nav-link active" href="barbeiro/cadastrar">Barbeiros</a>
+	<a class="nav-itm nav-link active" href="servico/cadastrar">Serviços</a>
+	<a class="nav-itm nav-link active" href="usuario/cadastrar">Usuários</a>
+	<a class="nav-itm nav-link active" href="/agendamentos">Agendamentos</a>
+	</div>
+	</nav>
+		
+		
+		
+	</div>
+	<footer th:replace="~{base :: footer}"></footer>
+</body>
+</html>

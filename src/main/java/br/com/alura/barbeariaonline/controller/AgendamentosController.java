@@ -25,7 +25,7 @@ public class AgendamentosController {
 	public String agendamentos(Model model) {
 		
 		List<Agendamento> agendamentos = agendamentoRepository.findAll();
-		List<Cliente> clientes = clienteRepository.findAll();
+		
 		model.addAttribute("agendamentos", agendamentos);
 		
 		
