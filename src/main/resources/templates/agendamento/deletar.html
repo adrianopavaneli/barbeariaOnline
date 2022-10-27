@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head th:replace="~{base :: head}"></head>
+<meta charset="UTF-8">
+<body>
+	<div th:replace="~{base :: logo('Serviços')}"></div>
+
+	<div class="container">
+	
+	<nav class="navbar navbar-expand-lg navbar-light bg-light mb-3 p-1">
+	<div class="navbar-nav">
+	<a class="nav-itm nav-link" href="/adm">Menu Principal</a>
+	<a class="nav-itm nav-link" href="cadastrar">Cadastrar</a>
+	<a class="nav-itm nav-link" href="alterar">Alterar</a>
+	<a class="nav-itm nav-link active" href="deletar">Deletar</a>
+	<a class="nav-itm nav-link" href="consultar">Consultar</a>
+	</div>
+	</nav>
+		
+		
+		<div class="card mt-3 mb-3">
+		<form class="card-body" action="/servico/deletar" method="POST">
+			<div class="form-group">
+			<label for="idServico">Informe o id do serviço para deletar:</label>
+			<input type="hidden" name="_method" value="DELETE" >  
+			<input name="idServico" class="form-control col-5" placeholder="id do serviço"/>
+						
+			</div>			
+			<button class="btn btn-primary" type="submit" value="excluir">Deletar</button>
+		</form>
+	</div>	
+	</div>
+	<footer th:replace="~{base :: footer}"></footer>
+</body>
+</html>
