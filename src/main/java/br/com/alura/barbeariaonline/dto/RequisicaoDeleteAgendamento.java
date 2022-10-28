@@ -5,30 +5,19 @@ import javax.validation.constraints.NotBlank;
 public class RequisicaoDeleteAgendamento {
 
     @NotBlank
-    private String idServico;
+    private String idAgendamento;
 
-   
-
-  
-
-    public String getIdServico() {
-        return idServico;
+    public String getIdAgendamento() {
+        return idAgendamento;
     }
 
-
-
-
-
-    public void setIdServico(String idServico) {
-        this.idServico = idServico;
+    public void setIdAgendamento(String idAgendamento) {
+        this.idAgendamento = idAgendamento;
     }
-
-
-
 
 
     public String toAgendamento() {
-        String id = idServico;
+        String id = idAgendamento;
         
         
         return id;

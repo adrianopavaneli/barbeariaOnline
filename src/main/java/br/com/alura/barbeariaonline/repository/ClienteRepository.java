@@ -9,4 +9,7 @@ import br.com.alura.barbeariaonline.model.Cliente;
 @Repository
 public interface ClienteRepository extends JpaRepository<Cliente, Long>{
 
+    Cliente findByNome(Cliente cliente);
+  
+
 }

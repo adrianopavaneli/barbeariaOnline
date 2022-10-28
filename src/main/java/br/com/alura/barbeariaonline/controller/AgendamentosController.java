@@ -11,9 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import br.com.alura.barbeariaonline.dto.RequisicaoAlterarBarbeiro;
-import br.com.alura.barbeariaonline.dto.RequisicaoDeleteBarbeiro;
-import br.com.alura.barbeariaonline.dto.RequisicaoNovoAgendamento;
+import br.com.alura.barbeariaonline.dto.RequisicaoDeleteAgendamento;
+import br.com.alura.barbeariaonline.dto.RequisicaoDeleteServico;
 import br.com.alura.barbeariaonline.model.Agendamento;
 import br.com.alura.barbeariaonline.model.Barbeiro;
 import br.com.alura.barbeariaonline.model.Cliente;
@@ -54,23 +53,7 @@ public class AgendamentosController {
     public String formsucesso() {
         return "agendamento/sucesso";
     }
-    
-    @PostMapping("novo")
-    public String novo(RequisicaoNovoAgendamento requisicao) {
-    
-        Agendamento agendamento = requisicao.toAgendamento();
-        agendamentoRepository.save(agendamento);
-        return "agendamento/sucesso";
-    }
-    
-       @PostMapping("alterar")
-        public String alterar(RequisicaoAlterarAgendamento requisicao) {
-            
-            Agendamento agendamento = requisicao.toAgendamento();
-            agendamentoRepository.save(agendamento);
-            return "agendamento/sucesso";
-        }
-	
+
 	
 	
 	
@@ -93,18 +76,19 @@ public class AgendamentosController {
 	
 	 @PostMapping("deletar")  
      @DeleteMapping("deletar/{id}")   
-    public String delete(RequisicaoDeleteBarbeiro requisicao) {
+    public String delete(RequisicaoDeleteAgendamento requisicao) {
          
          
-                  String idstring = requisicao.toBarbeiro();          
+                  String idstring = requisicao.toAgendamento();          
         Long id = Long.parseLong(idstring);
         
-        barbeiroRepository.deleteById(id);
+        agendamentoRepository.deleteById(id);
         return "agendamento/sucesso";
        
         
     }
-	
+	   
+	    
 
 
 }

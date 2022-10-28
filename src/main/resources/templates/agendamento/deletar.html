@@ -3,7 +3,7 @@
 <head th:replace="~{base :: head}"></head>
 <meta charset="UTF-8">
 <body>
-	<div th:replace="~{base :: logo('Serviços')}"></div>
+	<div th:replace="~{base :: logo('Agendamentos')}"></div>
 
 	<div class="container">
 	
@@ -19,11 +19,11 @@
 		
 		
 		<div class="card mt-3 mb-3">
-		<form class="card-body" action="/servico/deletar" method="POST">
+		<form class="card-body" action="agendamento/deletar" method="POST">
 			<div class="form-group">
-			<label for="idServico">Informe o id do serviço para deletar:</label>
+			<label for="idAgendamento">Informe o id do agendamento para deletar:</label>
 			<input type="hidden" name="_method" value="DELETE" >  
-			<input name="idServico" class="form-control col-5" placeholder="id do serviço"/>
+			<input name="idAgendamento" class="form-control col-5" placeholder="id do agendamento"/>
 						
 			</div>			
 			<button class="btn btn-primary" type="submit" value="excluir">Deletar</button>
