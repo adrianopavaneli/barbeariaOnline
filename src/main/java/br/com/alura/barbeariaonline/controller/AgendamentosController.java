@@ -53,7 +53,14 @@ public class AgendamentosController {
     public String formsucesso() {
         return "agendamento/sucesso";
     }
-
+    @GetMapping("/")
+    public String buscaCliente(Model model) {
+        List<Cliente> clientes = clienteRepository.findAll();
+        model.addAttribute("clientes", clientes);
+      
+        return "agendamento/cadastrar";
+    }
+    
 	
 	
 	
@@ -67,7 +74,7 @@ public class AgendamentosController {
 		List<Cliente> clientes = clienteRepository.findAll();
 		
 		List<Barbeiro> barbeiros = barbeiroRepository.findAll();
-		System.out.println(agendamentos);
+		
 		model.addAttribute("agendamentos", agendamentos);
 		
 		

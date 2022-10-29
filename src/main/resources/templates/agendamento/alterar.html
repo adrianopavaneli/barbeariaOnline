@@ -3,7 +3,7 @@
 <head th:replace="~{base :: head}"></head>
 <meta charset="UTF-8">
 <body>
-	<div th:replace="~{base :: logo('Serviços')}"></div>
+	<div th:replace="~{base :: logo('Agendamentos')}"></div>
 
 	<div class="container">
 	
@@ -19,7 +19,7 @@
 		
 		
 		<div class="card mt-2 mb-2 p-0">
-		<form class="card-body" action="/servico/alterar" method="post">
+		<form class="card-body" action="/agendamento/alterar" method="post">
 			<div class="form-group p-0">
 			<label for="idServico">Id:</label>
 			<input name="idServico" class="form-control col-5" placeholder="id do servico"/>
