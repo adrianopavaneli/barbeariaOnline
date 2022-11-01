@@ -53,8 +53,9 @@ public class AgendamentosController {
     public String formsucesso() {
         return "agendamento/sucesso";
     }
-    @GetMapping("/")
+    @GetMapping("buscaCliente")
     public String buscaCliente(Model model) {
+        System.out.println("testecliente");
         List<Cliente> clientes = clienteRepository.findAll();
         model.addAttribute("clientes", clientes);
       
