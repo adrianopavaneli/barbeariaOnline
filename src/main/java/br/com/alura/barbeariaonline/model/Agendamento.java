@@ -1,10 +1,6 @@
 package br.com.alura.barbeariaonline.model;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -31,55 +27,26 @@ public class Agendamento {
 	@ManyToOne(fetch = FetchType.EAGER)
     private Barbeiro barbeiro;
     private double valor;
-    private Date data;
-    private boolean ativo;
-    
+    private LocalDateTime data;
+    private boolean ativo;    
     private String observacao;
     
     public Agendamento() {
     	
     }
 
-    public Agendamento(Long id, Cliente cliente, Servico servico, double valor, String data) {
-        this.id = id;
-        this.cliente = cliente;
-        this.servico = servico;
-        this.valor = valor;
+    public void setData(String datastring) {
         try {
-            this.data = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(data);
-        } catch (ParseException ex) {
-            Logger.getLogger(Agendamento.class.getName()).log(Level.SEVERE, null, ex);
+            this.data = LocalDateTime.parse(datastring);                
+        } catch (Exception e) {
+            System.out.println("erro ao parsear data: " + e.getMessage());
         }
+                        
     }
-
-    public Agendamento(Long id, Cliente cliente, Servico servico, Barbeiro barbeiro,double valor, Date data, String observacao) {
-        this.id = id;
-        this.cliente = cliente;
-        this.servico = servico;
-        this.barbeiro = barbeiro;
-        this.valor = valor;
-        this.data = data;
-        this.observacao = observacao;
-        
-    }
+   
+    
 
    
-
-    public Agendamento(Long id, double valor, Date data, String observacao) {
-        this.id = id;
-        this.valor = valor;
-        this.data = data;
-        this.observacao = observacao;
-    }
-
-    public Barbeiro getBarbeiro() {
-        return barbeiro;
-    }
-
-    public void setBarbeiro(Barbeiro barbeiro) {
-        this.barbeiro = barbeiro;
-    }
-
 
     @Override
     public String toString() {

@@ -27,9 +27,7 @@
       <label for="Cliente">Cliente</label>
      <select autofocus action="/agendamento/buscaCliente" method="get" name="cliente" class="form-control" >
       <option value="-1">Selecione o Cliente</option>
-      <option th:Each="cliente : ${clientes}"
-  	th:value="${cliente.nome}"
-  	th:text="${cliente.nome}" /></option>
+      <option th:Each="cliente : ${clientes}" th:value="${cliente.id}" th:text="${cliente.nome}"></option>
       
   	
 </select>
@@ -58,7 +56,7 @@
     <div class="form-group col-md-3">
      		 <label for="valor">Valor</label>
 			<input name="valor" class="form-control" placeholder="999,00"/>
-			<small>Informe o RG do cliente</small>
+			<small>Informe o valor</small>
     </div>
      <div class="form-group col-md-6">
         <label for="observacao">Observação</label>

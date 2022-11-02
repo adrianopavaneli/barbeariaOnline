@@ -12,14 +12,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.alura.barbeariaonline.dto.RequisicaoDeleteAgendamento;
-import br.com.alura.barbeariaonline.dto.RequisicaoDeleteServico;
 import br.com.alura.barbeariaonline.model.Agendamento;
 import br.com.alura.barbeariaonline.model.Barbeiro;
 import br.com.alura.barbeariaonline.model.Cliente;
 import br.com.alura.barbeariaonline.repository.AgendamentoRepository;
 import br.com.alura.barbeariaonline.repository.BarbeiroRepository;
 import br.com.alura.barbeariaonline.repository.ClienteRepository;
-import br.com.alura.barbeariaonline.repository.ServicoRepository;
 
 @Controller
 @RequestMapping("agendamento")
@@ -28,8 +26,8 @@ public class AgendamentosController {
 	private AgendamentoRepository agendamentoRepository;
 	@Autowired
 	private ClienteRepository clienteRepository;
-	@Autowired
-	private ServicoRepository servicoRepository;
+//	@Autowired
+//	private ServicoRepository servicoRepository;
 	@Autowired
 	private BarbeiroRepository barbeiroRepository;
 	
@@ -58,7 +56,7 @@ public class AgendamentosController {
         System.out.println("testecliente");
         List<Cliente> clientes = clienteRepository.findAll();
         model.addAttribute("clientes", clientes);
-      
+      System.out.println(clientes);
         return "agendamento/cadastrar";
     }
     
@@ -72,10 +70,10 @@ public class AgendamentosController {
 //	    Sort sort = Sort.by("data").descending();
 		
 		List<Agendamento> agendamentos = agendamentoRepository.findAllTodosAgendamentos();
-		List<Cliente> clientes = clienteRepository.findAll();
-		
-		List<Barbeiro> barbeiros = barbeiroRepository.findAll();
-		
+//		List<Cliente> clientes = clienteRepository.findAll();
+//		
+//		List<Barbeiro> barbeiros = barbeiroRepository.findAll();
+//		
 		model.addAttribute("agendamentos", agendamentos);
 		
 		
