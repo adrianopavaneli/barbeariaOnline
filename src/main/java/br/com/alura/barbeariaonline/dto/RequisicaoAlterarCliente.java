@@ -2,7 +2,6 @@ package br.com.alura.barbeariaonline.dto;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import javax.validation.constraints.NotBlank;
 
@@ -127,9 +126,8 @@ public class RequisicaoAlterarCliente {
         cliente.setEndereco(endereco);
         cliente.setRg(rg);
         cliente.setSexo(sexo);
-        cliente.setTelefone(telefone);
-        Date data = formatter.parse(datanascimento);        
-        cliente.setDataNascimento(data);
+        cliente.setTelefone(telefone);      
+        cliente.setDataNascimento(datanascimento);
         Long id = Long.parseLong(idCliente);
         cliente.setId(id);
         

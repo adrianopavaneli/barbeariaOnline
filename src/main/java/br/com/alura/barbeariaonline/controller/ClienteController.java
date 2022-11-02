@@ -49,7 +49,7 @@ public class ClienteController {
     
         Cliente cliente = requisicao.toCliente();
         System.out.println(cliente);
-//        clienteRepository.save(cliente);
+        clienteRepository.save(cliente);
         return "cliente/sucesso";
     }
     

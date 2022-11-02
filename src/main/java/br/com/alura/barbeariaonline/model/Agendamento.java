@@ -13,6 +13,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import lombok.Getter;
+import lombok.Setter;
+@Getter
+@Setter
 @Entity
 @Table(name="agendamentos")
 public class Agendamento {
@@ -75,74 +80,6 @@ public class Agendamento {
         this.barbeiro = barbeiro;
     }
 
- 
-   
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public boolean isAtivo() {
-        return ativo;
-    }
-
-    public void setAtivo(boolean ativo) {
-        this.ativo = ativo;
-    }
-
-    
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
-
-    public Servico getServico() {
-        return servico;
-    }
-
-    public void setServico(Servico servico) {
-        this.servico = servico;
-    }
-
-    public double getValor() {
-        return valor;
-    }
-
-    public void setValor(double valor) {
-        this.valor = valor;
-    }
-
-    public Date getData() {
-        return data;
-    }
-
-    public String getDataFormatada(){
-      return new SimpleDateFormat("dd/MM/yyyy").format(data);
-    }
-    public String getHoraFormatada(){
-       return new SimpleDateFormat("HH:mm").format(data);
-    }
-    public void setData(Date data) {
-        this.data = data;
-    }
-    public String getDataPronta(){
-        
-        return new SimpleDateFormat("yyyy-MM-dd HH:mm").format(data);
-    }
-
-    public String getObservacao() {
-        return observacao;
-    }
-
-    public void setObservacao(String observacao) {
-        this.observacao = observacao;
-    }
 
     @Override
     public String toString() {
