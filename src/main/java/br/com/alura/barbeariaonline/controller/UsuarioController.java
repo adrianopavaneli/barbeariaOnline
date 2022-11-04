@@ -24,7 +24,7 @@ import br.com.alura.barbeariaonline.service.MyUserDetailService;
 public class UsuarioController {
     @Autowired
     private UsuarioRepository usuarioRepository;
-    
+    @Autowired
     private MyUserDetailService usuarioService;
     
     @GetMapping("cadastrar")

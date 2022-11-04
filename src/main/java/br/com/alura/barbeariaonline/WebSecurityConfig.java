@@ -16,6 +16,16 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
     
+//    protected void configure(AuthenticationManagerBuilder auth) throws Exception{
+//BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+//        
+//        UserDetails user = 
+//                Usuario.builder()
+//                .username("joao")
+//                .password(encoder.encode("1234"))
+//                .roles("ADM")
+//                .build();
+//    }
     @Override
     protected void configure(HttpSecurity http) throws Exception{
         http
@@ -40,7 +50,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 
     @Autowired
     public void globalUserDetails(AuthenticationManagerBuilder auth) throws Exception {
+        
+        
         auth.userDetailsService(userDetailsService).passwordEncoder(encoder());
+        
+        
     }
 
     @Bean
