@@ -5,17 +5,17 @@ import javax.validation.constraints.NotBlank;
 import br.com.alura.barbeariaonline.model.Usuario;
 
 public class RequisicaoNovoUsuario {
-	
-	
-	@NotBlank 
-	private String username;
-	@NotBlank
-	private String password;
-	
-	
+    
+    
+    @NotBlank 
+    private String username;
+    @NotBlank
+    private String password;
+    
+    
 
 
-	public String getUsername() {
+    public String getUsername() {
         return username;
     }
 
@@ -44,12 +44,12 @@ public class RequisicaoNovoUsuario {
 
 
     public Usuario toUsuario() {
-		Usuario usuario = new Usuario();
-		usuario.setUsername(username);
-		usuario.setPassword(password);
-		return usuario;
-	}
-	
-	
-	
+        Usuario usuario = new Usuario();
+        usuario.setUsername(username);
+        usuario.setPassword(password);
+        return usuario;
+    }
+    
+    
+    
 }

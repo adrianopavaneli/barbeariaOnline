@@ -17,12 +17,15 @@ import br.com.alura.barbeariaonline.dto.RequisicaoDeleteUsuario;
 import br.com.alura.barbeariaonline.dto.RequisicaoNovoUsuario;
 import br.com.alura.barbeariaonline.model.Usuario;
 import br.com.alura.barbeariaonline.repository.UsuarioRepository;
+import br.com.alura.barbeariaonline.service.MyUserDetailService;
 
 @Controller
 @RequestMapping("usuario")
 public class UsuarioController {
     @Autowired
     private UsuarioRepository usuarioRepository;
+    
+    private MyUserDetailService usuarioService;
     
     @GetMapping("cadastrar")
     public String formulario() {
@@ -77,10 +80,19 @@ public class UsuarioController {
         Long id = Long.parseLong(idstring);
        
         usuarioRepository.deleteById(id);
-        return "barbeiro/sucesso";
+        return "usuario/sucesso";
        
         
     }
+      @GetMapping("/new-user")
+      public String newUser() {
+          Usuario usuario = new Usuario();
+          usuario.setId(1L);
+          usuario.setUsername("danilo");
+          usuario.setPassword("123");
+          usuarioService.save(usuario);
+          return usuario.toString();
+      }
     
     
 }
