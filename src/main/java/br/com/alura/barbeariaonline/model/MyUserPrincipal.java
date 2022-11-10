@@ -1,6 +1,5 @@
 package br.com.alura.barbeariaonline.model;
 
-
 import java.util.Collection;
 
 import org.springframework.security.core.GrantedAuthority;
@@ -14,10 +13,10 @@ public class MyUserPrincipal implements UserDetails {
 
     private static final long serialVersionUID = -8489053074208206273L;
 
-    private Usuario usuario;
+    private User user;
 
-    public MyUserPrincipal(Usuario usuario) {
-        this.usuario = usuario;
+    public MyUserPrincipal(User user) {
+        this.user = user;
     }
 
     @Override
@@ -27,12 +26,12 @@ public class MyUserPrincipal implements UserDetails {
 
     @Override
     public String getPassword() {
-        return usuario.getPassword();
+        return user.getPassword();
     }
 
     @Override
     public String getUsername() {
-        return usuario.getUsername();
+        return user.getUsername();
     }
 
     @Override
