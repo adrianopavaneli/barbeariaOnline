@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import br.com.alura.barbeariaonline.model.User;
 
 @Repository
-public interface UsuarioRepo extends CrudRepository<User, String> {
+public interface UsuarioRepo extends CrudRepository<User, Long> {
 
     Optional<User> findByUsername(String username);
 
