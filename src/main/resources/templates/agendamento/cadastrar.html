@@ -25,13 +25,20 @@
    <div class="form-row">
     <div class="form-group col-md-4" >
       <label for="Cliente">Cliente</label>
-     <select autofocus action="/agendamento/buscaCliente" method="get" name="cliente" class="form-control" >
-      <option value="-1">Selecione o Cliente</option>
-      <option th:Each="cliente : ${clientes}" th:value="${cliente.id}" th:text="${cliente.nome}"></option>
       
-  	
-</select>
-    </div>
+      
+     <form:select path="agendamento/buscaCliente" class="form-control" >
+      <form:option value="-1">Selecione o Cliente</form:option>
+      <c:forEach items="${clientes}" var="s">
+      
+      <option value="${clientes.id}"><c.out value="${clientes.nome}" /></option>
+      </c:forEach>
+      </form:select>
+  	</div>
+  
+
+
+    
     <div class="form-group col-md-4">
       <label for="inputState">Barbeiro</label>
       <select id="inputState" class="form-control">

@@ -8,16 +8,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.alura.barbeariaonline.dto.RequisicaoDeleteAgendamento;
 import br.com.alura.barbeariaonline.model.Agendamento;
-import br.com.alura.barbeariaonline.model.Barbeiro;
 import br.com.alura.barbeariaonline.model.Cliente;
 import br.com.alura.barbeariaonline.repository.AgendamentoRepository;
 import br.com.alura.barbeariaonline.repository.BarbeiroRepository;
 import br.com.alura.barbeariaonline.repository.ClienteRepository;
+
 
 @Controller
 @RequestMapping("agendamento")
@@ -30,6 +31,7 @@ public class AgendamentosController {
 //	private ServicoRepository servicoRepository;
 	@Autowired
 	private BarbeiroRepository barbeiroRepository;
+	
 	
 	
     
@@ -51,8 +53,12 @@ public class AgendamentosController {
     public String formsucesso() {
         return "agendamento/sucesso";
     }
+    
+ 
+    
+    
     @GetMapping("buscaCliente")
-    public String buscaCliente(Model model, Principal principal) {
+    public String buscaCliente(Model model, Principal principal, @PathVariable Long id) {
         System.out.println("testecliente");
         List<Cliente> clientes = clienteRepository.findAll();
         model.addAttribute("clientes", clientes);
@@ -60,8 +66,7 @@ public class AgendamentosController {
         return "agendamento/cadastrar";
     }
     
-	
-	
+    
 	
 	
 	
