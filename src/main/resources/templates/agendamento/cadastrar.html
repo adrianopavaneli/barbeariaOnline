@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <meta charset="UTF-8">
+
 <head th:replace="~{base :: head}"></head>
 <body>
 	<div th:replace="~{base :: logo('Agendamentos')}"></div>
@@ -24,16 +25,17 @@
    	
    <div class="form-row">
     <div class="form-group col-md-4" >
-      <label for="Cliente">Cliente</label>
+      <label path = "form">Country</label>
+      
+     <select path="form">
+            <option th:each="barbeiro:${barbeiros}"
+                    th:value="${barbeiro.nome}"
+                    th:text="${barbeiro.nome}">
+</option>
+            </select>
       
       
-     <form:select path="agendamento/buscaCliente" class="form-control" >
-      <form:option value="-1">Selecione o Cliente</form:option>
-      <c:forEach items="${clientes}" var="s">
-      
-      <option value="${clientes.id}"><c.out value="${clientes.nome}" /></option>
-      </c:forEach>
-      </form:select>
+     
   	</div>
   
 
