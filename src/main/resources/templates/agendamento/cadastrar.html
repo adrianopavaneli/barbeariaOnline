@@ -27,6 +27,7 @@
      <div class="form-group col-md-4">
                 <label for="statusCliente">Cliente</label>
                 <select id="statusCliente" class="custom-select" th:field="*{listaCliente}">
+                	<option value="">Selecione o Cliente</option>
                     <option th:each="cliente : ${listaCliente}"
                             th:text="${cliente.nome}"
                             th:value="${cliente.id}"></option>
@@ -35,6 +36,7 @@
       <div class="form-group col-md-4">
                 <label for="statusBarbeiro">Barbeiro</label>
                 <select id="statusBarbeiro" class="custom-select" th:field="*{listaBarbeiro}">
+                	<option value="">Selecione o Barbeiro</option>
                     <option th:each="barbeiro : ${listaBarbeiro}"
                             th:text="${barbeiro.nome}"
                             th:value="${barbeiro.id}"></option>
@@ -43,6 +45,7 @@
   		<div class="form-group col-md-4">
                 <label for="statusServico">Barbeiro</label>
                 <select id="statusServico" class="custom-select" th:field="*{listaServico}">
+                    <option value="">Selecione o Serviço</option>
                     <option th:each="servico : ${listaServico}"
                             th:text="${servico.descricao}"
                             th:value="${servico.id}"></option>

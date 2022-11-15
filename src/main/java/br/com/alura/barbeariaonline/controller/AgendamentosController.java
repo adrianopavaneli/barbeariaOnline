@@ -1,16 +1,14 @@
 package br.com.alura.barbeariaonline.controller;
 
 import java.security.Principal;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -43,21 +41,20 @@ public class AgendamentosController {
     public ModelAndView novo() {
         ModelAndView mv = new ModelAndView("agendamento/cadastrar");
         mv.addObject(new Agendamento());
-        List<Barbeiro> listaBarbeiro = barbeiroRepository.findAll();
+        Sort sortBarbeiro = Sort.by("nome").ascending();
+        List<Barbeiro> listaBarbeiro = barbeiroRepository.findAll(sortBarbeiro);
         mv.addObject("listaBarbeiro", listaBarbeiro);
-        List<Cliente> listaCliente = clienteRepository.findAll();
+        Sort sortCliente = Sort.by("nome").ascending();
+        List<Cliente> listaCliente = clienteRepository.findAll(sortCliente);
         mv.addObject("listaCliente", listaCliente);
-        List<Servico> listaServico = servicoRepository.findAll();
+        Sort sortServico = Sort.by("descricao").ascending();
+        List<Servico> listaServico = servicoRepository.findAll(sortServico);
         mv.addObject("listaServico", listaServico);
         return mv;
     }
 	
-    
-//    @GetMapping("cadastrar")
-//    public String formulario() {
-//        return "agendamento/cadastrar";
-//    }
-    
+	
+	    
     @GetMapping("deletar")
     public String formdelete() {
         return "agendamento/deletar";
@@ -72,40 +69,9 @@ public class AgendamentosController {
         return "agendamento/sucesso";
     }
     
- 
-    @GetMapping(params = "form")
-    public String createForm(@ModelAttribute Barbeiro barbeiro, Model theModel) {
-        theModel.addAttribute("barbeiros", barbeiroRepository.findAll());
-        
-        return"/cadastrar";
-    }
-    
-//    @GetMapping("buscaCliente")
-//    public String buscaCliente(Model model, Principal principal, @PathVariable Long id) {
-//        System.out.println("testecliente");
-//        List<Cliente> clientes = clienteRepository.findAll();
-//        model.addAttribute("clientes", clientes);
-//      System.out.println(clientes);
-//        return "agendamento/cadastrar";
-//    }
-    
-    @ModelAttribute("countryList")
-    public Map<String, String> getCountryList() {
-       Map<String, String> countryList = new HashMap<String, String>();
-       countryList.put("US", "United States");
-       countryList.put("CH", "China");
-       countryList.put("SG", "Singapore");
-       countryList.put("MY", "Malaysia");
-       return countryList;
-    }
-    
-    
-	
-	
-	
 	@GetMapping("consultar")
 	public String agendamentos(Model model, Principal principal) {
-//	    Sort sort = Sort.by("data").descending();
+	    Sort sort = Sort.by("data").descending();
 		
 		List<Agendamento> agendamentos = agendamentoRepository.findAllTodosAgendamentos();
 //		List<Cliente> clientes = clienteRepository.findAll();

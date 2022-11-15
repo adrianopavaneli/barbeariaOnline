@@ -61,9 +61,9 @@ public class ServicoController {
        
     @GetMapping("consultar")
     public String servico(Model model, Principal principal) {
-        Sort sort = Sort.by("id").ascending();
+        Sort sort = Sort.by("descricao").ascending();
         
-        List<Servico> servicos = servicoRepository.findAll();       
+        List<Servico> servicos = servicoRepository.findAll(sort);       
         model.addAttribute("servicos", servicos);
         return "servico/consultar";
     }
