@@ -11,17 +11,20 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import br.com.alura.barbeariaonline.dto.RequisicaoDeleteAgendamento;
 import br.com.alura.barbeariaonline.model.Agendamento;
 import br.com.alura.barbeariaonline.model.Barbeiro;
 import br.com.alura.barbeariaonline.model.Cliente;
+import br.com.alura.barbeariaonline.model.Servico;
 import br.com.alura.barbeariaonline.repository.AgendamentoRepository;
 import br.com.alura.barbeariaonline.repository.BarbeiroRepository;
 import br.com.alura.barbeariaonline.repository.ClienteRepository;
+import br.com.alura.barbeariaonline.repository.ServicoRepository;
+
 
 
 @Controller
@@ -31,18 +34,29 @@ public class AgendamentosController {
 	private AgendamentoRepository agendamentoRepository;
 	@Autowired
 	private ClienteRepository clienteRepository;
-//	@Autowired
-//	private ServicoRepository servicoRepository;
+	@Autowired
+	private ServicoRepository servicoRepository;
 	@Autowired
 	private BarbeiroRepository barbeiroRepository;
 	
-	
+	@GetMapping(value = "cadastrar")
+    public ModelAndView novo() {
+        ModelAndView mv = new ModelAndView("agendamento/cadastrar");
+        mv.addObject(new Agendamento());
+        List<Barbeiro> listaBarbeiro = barbeiroRepository.findAll();
+        mv.addObject("listaBarbeiro", listaBarbeiro);
+        List<Cliente> listaCliente = clienteRepository.findAll();
+        mv.addObject("listaCliente", listaCliente);
+        List<Servico> listaServico = servicoRepository.findAll();
+        mv.addObject("listaServico", listaServico);
+        return mv;
+    }
 	
     
-    @GetMapping("cadastrar")
-    public String formulario() {
-        return "agendamento/cadastrar";
-    }
+//    @GetMapping("cadastrar")
+//    public String formulario() {
+//        return "agendamento/cadastrar";
+//    }
     
     @GetMapping("deletar")
     public String formdelete() {
@@ -66,14 +80,14 @@ public class AgendamentosController {
         return"/cadastrar";
     }
     
-    @GetMapping("buscaCliente")
-    public String buscaCliente(Model model, Principal principal, @PathVariable Long id) {
-        System.out.println("testecliente");
-        List<Cliente> clientes = clienteRepository.findAll();
-        model.addAttribute("clientes", clientes);
-      System.out.println(clientes);
-        return "agendamento/cadastrar";
-    }
+//    @GetMapping("buscaCliente")
+//    public String buscaCliente(Model model, Principal principal, @PathVariable Long id) {
+//        System.out.println("testecliente");
+//        List<Cliente> clientes = clienteRepository.findAll();
+//        model.addAttribute("clientes", clientes);
+//      System.out.println(clientes);
+//        return "agendamento/cadastrar";
+//    }
     
     @ModelAttribute("countryList")
     public Map<String, String> getCountryList() {

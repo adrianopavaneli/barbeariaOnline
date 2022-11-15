@@ -23,38 +23,34 @@
 		<form class="card-body" action="/agendamento/novo" method="post">
 			
    	
-   <div class="form-row">
-    <div class="form-group col-md-4" >
-      <label path = "form">Country</label>
-      
-     <select path="form">
-            <option th:each="barbeiro:${barbeiros}"
-                    th:value="${barbeiro.nome}"
-                    th:text="${barbeiro.nome}">
-</option>
-            </select>
-      
-      
-     
-  	</div>
-  
-
+   	<div class="form-row">
+     <div class="form-group col-md-4">
+                <label for="statusCliente">Cliente</label>
+                <select id="statusCliente" class="custom-select" th:field="*{listaCliente}">
+                    <option th:each="cliente : ${listaCliente}"
+                            th:text="${cliente.nome}"
+                            th:value="${cliente.id}"></option>
+                </select>
+            </div>
+      <div class="form-group col-md-4">
+                <label for="statusBarbeiro">Barbeiro</label>
+                <select id="statusBarbeiro" class="custom-select" th:field="*{listaBarbeiro}">
+                    <option th:each="barbeiro : ${listaBarbeiro}"
+                            th:text="${barbeiro.nome}"
+                            th:value="${barbeiro.id}"></option>
+                </select>
+            </div>
+  		<div class="form-group col-md-4">
+                <label for="statusServico">Barbeiro</label>
+                <select id="statusServico" class="custom-select" th:field="*{listaServico}">
+                    <option th:each="servico : ${listaServico}"
+                            th:text="${servico.descricao}"
+                            th:value="${servico.id}"></option>
+                </select>
+            </div>
 
     
-    <div class="form-group col-md-4">
-      <label for="inputState">Barbeiro</label>
-      <select id="inputState" class="form-control">
-        <option selected>Choose...</option>
-        <option>...</option>
-      </select>
-    </div>
-     <div class="form-group col-md-4">
-      <label for="inputState">Serviço</label>
-      <select id="inputState" class="form-control">
-        <option selected>Choose...</option>
-        <option>...</option>
-      </select>
-    </div>
+     
   </div>  
   <div class="form-row">
    <div class="form-group col-md-3">
