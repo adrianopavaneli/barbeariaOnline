@@ -71,18 +71,17 @@ public class AgendamentosController {
     
 	@GetMapping("consultar")
 	public String agendamentos(Model model, Principal principal) {
-	    Sort sort = Sort.by("data").descending();
+//	    Sort sort = Sort.by("data").descending();
 		
 		List<Agendamento> agendamentos = agendamentoRepository.findAllTodosAgendamentos();
-//		List<Cliente> clientes = clienteRepository.findAll();
-//		
-//		List<Barbeiro> barbeiros = barbeiroRepository.findAll();
-//		
+
 		model.addAttribute("agendamentos", agendamentos);
 		
 		
 		return "agendamento/consultar";
 	}
+	
+
 	
 	 @PostMapping("deletar")  
      @DeleteMapping("deletar/{id}")   

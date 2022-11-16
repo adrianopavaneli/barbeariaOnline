@@ -43,7 +43,7 @@
                 </select>
             </div>
   		<div class="form-group col-md-4">
-                <label for="statusServico">Barbeiro</label>
+                <label for="statusServico">Serviço</label>
                 <select id="statusServico" class="custom-select" th:field="*{listaServico}">
                     <option value="">Selecione o Serviço</option>
                     <option th:each="servico : ${listaServico}"
@@ -63,7 +63,7 @@
     </div>
     <div class="form-group col-md-3">
      		 <label for="valor">Valor</label>
-			<input name="valor" class="form-control" placeholder="999,00"/>
+			<input onclick="alteravalor" name="valor" class="form-control" placeholder="999,00"/>
 			<small>Informe o valor</small>
     </div>
      <div class="form-group col-md-6">

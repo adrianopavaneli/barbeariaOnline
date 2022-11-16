@@ -28,7 +28,7 @@
 		<ul class="list-group list-group-flush " th:each="agendamento : ${agendamentos}">
 		<div class="row mt-0 p-1">
 		<li class="list-group-item col-md-1 p-0">Id: <span th:text="${agendamento.id}"></span></li>
-		<li class="list-group-item col-md-2 p-0">Data: <span th:text="${#calendars.format(agendamento.data, 'dd/MM/yyyy HH:mm')}"></span></li>
+		<li class="list-group-item col-md-2 p-0">Data: <span th:text="${agendamento.data}"></span></li>
 		<li class="list-group-item col-md-2 p-0">Barbeiro: <span th:text="${agendamento.barbeiro.nome}"></span></li>	
 		<li class="list-group-item col-md-3 p-0">Cliente: <span th:text="${agendamento.cliente.nome}"></span></li>	
 		<li class="list-group-item col-md-1 p-0">Valor: <span th:text="${#numbers.formatDecimal(agendamento.valor,0,2,'COMMA')}"></span></li>
