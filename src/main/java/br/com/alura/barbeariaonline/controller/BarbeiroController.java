@@ -45,7 +45,7 @@ public class BarbeiroController {
 	
 	@PostMapping("novo")
 	public String novo(RequisicaoNovoBarbeiro requisicao) {
-	
+	System.out.println("teste");
 		Barbeiro barbeiro = requisicao.toBarbeiro();
 		barbeiroRepository.save(barbeiro);
 		return "barbeiro/sucesso";
