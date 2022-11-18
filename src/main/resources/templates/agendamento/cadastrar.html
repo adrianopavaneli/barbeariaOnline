@@ -34,8 +34,8 @@
                 </select>
             </div>
       <div class="form-group col-md-4">
-                <label for="statusBarbeiro">Barbeiro</label>
-                <select id="statusBarbeiro" class="custom-select" th:field="*{listaBarbeiro}">
+                <label for="nomeBarbeiro">Barbeiro</label>
+                <select id="nomeBarbeiro" class="custom-select" th:field="*{listaBarbeiro}">
                 	<option value="">Selecione o Barbeiro</option>
                     <option th:each="barbeiro : ${listaBarbeiro}"
                             th:text="${barbeiro.nome}"
